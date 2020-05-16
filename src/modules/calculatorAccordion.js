@@ -91,7 +91,7 @@ const calculatorAccordion = () =>{
 
     onOffSwitch.forEach(item => item.addEventListener('click', countSum));
     callBtn.addEventListener('click', () => {
-        sendForms('capture-form', calculate);
+        sendForms(undefined, calculate);
     });
     
 

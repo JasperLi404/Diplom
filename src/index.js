@@ -5,6 +5,7 @@ import accordion from './modules/accordion.js';
 import calculatorAccordion from './modules/calculatorAccordion.js';
 import sendForms from './modules/sendForms.js';
 import showPromotions from './modules/showPromotions.js';
+import getConsultation from './modules/getConsultation.js';
 
 window.addEventListener('DOMContentLoaded', () => {
     callMe();
@@ -13,8 +14,8 @@ window.addEventListener('DOMContentLoaded', () => {
     calculatorAccordion();
     sendForms('capture-form');
     sendForms('main-form');
-    sendForms('director-form');
     showPromotions();
+    getConsultation();
 
     
 
