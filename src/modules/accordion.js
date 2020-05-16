@@ -1,5 +1,5 @@
-const accordion = () => {    
-    const container = document.querySelector('.questions'),
+const accordion = (name) => {    
+    const container = document.querySelector(name),
           panelHeading = container.querySelectorAll('.panel-heading'),
           panelCollapse = container.querySelectorAll('.panel-collapse');
           
@@ -18,7 +18,7 @@ const accordion = () => {
         panelCollapse.forEach(elem => {
             let attr = elem.getAttribute('aria-labelledby');
             elem.style.display = 'none';
-            if(attr === 'headingOne') attr += '-two';
+            if(attr === 'headingOne' && eventId != attr) attr += '-two';
             if(eventId == attr){
                 elem.style.display = 'flex';
             }
@@ -26,6 +26,7 @@ const accordion = () => {
     }
     panelHeading.forEach(item => {
         item.addEventListener('click', moveToBlock);
-    })
+    });
+
 }
 export default accordion;
