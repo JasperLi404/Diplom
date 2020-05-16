@@ -1,18 +1,20 @@
 'use strict';
 
-import callMeTogglePopup from './modules/callMeTogglePopup.js';
+import callMe from './modules/callMe.js';
 import accordion from './modules/accordion.js';
 import calculatorAccordion from './modules/calculatorAccordion.js';
 import sendForms from './modules/sendForms.js';
+import showPromotions from './modules/showPromotions.js';
 
 window.addEventListener('DOMContentLoaded', () => {
-    callMeTogglePopup();
+    callMe();
     accordion('.questions');
     accordion('.constructor');
     calculatorAccordion();
-    // sendForms('capture-form');
+    sendForms('capture-form');
     sendForms('main-form');
     sendForms('director-form');
+    showPromotions();
 
     
 

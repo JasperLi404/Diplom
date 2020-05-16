@@ -12,9 +12,9 @@ const sendForms = (form, data = {}) => {
     
     const validationForm = event =>{
         const target = event.target;
-        if(target.id == 'name_1' || target.id == 'name_2' || target.id == 'name_3' || target.name == 'user_quest'){
+        if(target.id == 'name_1' || target.id == 'name_2' || target.id == 'name_3' || target.id == 'name_11' || target.name == 'user_quest'){
             target.value = target.value.replace(/[a-zA-Z0-9]/g, '');
-        } else if(target.id == 'phone_1' || target.id == 'phone_2' || target.id == 'phone_3'){
+        } else if(target.id == 'phone_1' || target.id == 'phone_2' || target.id == 'phone_3' || target.id == 'phone_11'){
             let val = target.value.replace(/(\D|[a-zA-ZА-Яа-я])/g, '');
             target.value ='+'+ val;
         }
