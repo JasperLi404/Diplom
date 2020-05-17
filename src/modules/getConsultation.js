@@ -12,7 +12,7 @@ const getConsultation = () => {
     });
     consultBtn.addEventListener('click', ()=> {
         togglePopup(popupConsult);
-        sendForms(undefined, data);
+        sendForms('capture-form', data);
     });
 }
 export default getConsultation;
