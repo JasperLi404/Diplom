@@ -5,7 +5,8 @@ const showPromotions = () => {
           discountBtn = document.querySelectorAll('.discount-btn'),
           popupDiscount = document.querySelector('.popup-discount'),
           checkBtn = document.querySelector('.check-btn'),
-          popupCheck = document.querySelector('.popup-check');
+          popupCheck = document.querySelector('.popup-check'),
+          visible = document.querySelector('.visible-sm-block');
 
     checkBtn.addEventListener('click', () => {
         togglePopup(popupCheck);
@@ -17,6 +18,7 @@ const showPromotions = () => {
     });
     btnMore.addEventListener('click', event => {
         event.target.style.display = 'none';
+        visible.classList.toggle('visible-sm-block');
         hiddenElements.forEach(item => item.classList.toggle('hidden'));
     });
 }
