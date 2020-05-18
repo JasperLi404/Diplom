@@ -71,13 +71,17 @@ const sendForms = (form, Data = {}) => {
                    throw new Error('network status isn`t 200');
                }
                statusMessage.textContent = successMessage;
-               setTimeout(() => statusMessage.parentNode.removeChild(statusMessage), 3000);
+               setTimeout(() => {
+                 if(statusMessage.parentNode) statusMessage.parentNode.removeChild(statusMessage);
+               }, 3000);
                clearInput();
                
            })
            .catch(() => {
                statusMessage.textContent = errorMessage;
-               setTimeout(() => statusMessage.parentNode.removeChild(statusMessage), 3000);
+               setTimeout(() => {                   
+                if(statusMessage.parentNode) statusMessage.parentNode.removeChild(statusMessage);
+            }, 3000);
                clearInput();
             });
         });
