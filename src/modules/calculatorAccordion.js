@@ -1,21 +1,12 @@
-import sendForms from './sendForms.js';
+export{calculate};
+const calculate = {};
 const calculatorAccordion = () =>{
     const constructBtn = document.querySelectorAll('.construct-btn'),
           container = document.querySelector('.constructor'),
           panelCollapse = container.querySelectorAll('.panel-collapse'),
           calcResult = container.querySelector('#calc-result'),
-          callBtn = container.querySelector('.call-btn'),
+          callBtn =container.querySelector('.call-btn'),
           onOffSwitch = container.querySelectorAll('.onoffswitch-checkbox');
-    const calculate = {
-        "diameter" : 0,
-        "ringAmount" : 0,
-        "amount" : 1,
-        "doubleBottom" : true,
-        "total" : 0,
-        "diameterAdd": 0,
-        "ringAmountAdd": 0     
-
-    };
     const nextTab = event => {
         const target = event.target;
         let i = 0;
@@ -33,6 +24,7 @@ const calculatorAccordion = () =>{
         countSum();
         
     };
+    
     const countSum = () => {
         let total = 0, price, diameterPrice = 0,
             ringAmount = 0, diameterPriceAdd = 0,
@@ -82,6 +74,8 @@ const calculatorAccordion = () =>{
         total = Math.round( price + diameterPrice + ringAmount + diameterPriceAdd + diameterAmountPriceAdd + doubleBottomPrice);
         calcResult.placeholder = total;
         calculate["total"] = total;
+        
+        
     }
     constructBtn.forEach(item => item.addEventListener('click', nextTab.bind(this)));
     container.addEventListener('change', event => {
@@ -91,10 +85,7 @@ const calculatorAccordion = () =>{
 
     onOffSwitch.forEach(item => item.addEventListener('click', countSum));
     callBtn.addEventListener('click', () => {
-        sendForms('capture-form', calculate);
+        
     });
-    
-
-}
-
+    }
 export default calculatorAccordion;

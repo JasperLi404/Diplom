@@ -16,15 +16,14 @@ import showPromotions from './modules/showPromotions.js';
 import getConsultation from './modules/getConsultation.js';
 
 window.addEventListener('DOMContentLoaded', () => {
+    calculatorAccordion();
     callMe();
     accordion('.questions');
     accordion('.constructor');
     calculatorAccordion();
-    sendForms('capture-form');
-    sendForms('main-form');
+    sendForms();
     showPromotions();
     getConsultation();
 
     
-
-})
+});
