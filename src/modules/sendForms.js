@@ -76,13 +76,16 @@ const sendForms = () => {
     window.addEventListener('click', event => {
         const target = event.target;
         if(target.classList.contains('call-btn')) data = calculate;
-        else if(target.classList.contains('consultation-btn')) data = question;
+        else if(target.classList.contains('director-btn')) data = question;
     });    
+    let i =0 ;
     window.addEventListener('submit', event => {
         event.preventDefault();
         const target = event.target,
+              directInput = document.querySelector('.director-form>input'),
             parent = target.parentNode,
             form = parent.querySelector('form');
+            if(form.id == 'form_consultation') directInput.value = ``;
             sendForm(form, data);
     });  
    

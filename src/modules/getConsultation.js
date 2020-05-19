@@ -1,5 +1,4 @@
 import togglePopup from './togglePopup.js';
-import sendForms from './sendForms.js';
 export {question}
 const question={};
 const getConsultation = () => {
@@ -12,9 +11,9 @@ const getConsultation = () => {
         target.value = target.value.replace(/[a-zA-Z0-9]/g, '');
         question[target.name] = target.value;
     });
+
     consultBtn.addEventListener('click', ()=> {
         togglePopup(popupConsult);
-        sendForms('capture-form', question);
     });
 }
 export default getConsultation;
