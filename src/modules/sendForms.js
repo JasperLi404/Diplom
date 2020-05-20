@@ -1,6 +1,7 @@
 import {calculate} from './calculatorAccordion.js'
 import {question} from './getConsultation.js';
 const sendForms = () => {
+    let data = {};
     const inputEl = document.querySelectorAll('input');   
     const MergeRecursive = (obj1,data) => {
         for (let p in data) {
@@ -31,9 +32,9 @@ const sendForms = () => {
             target.value ='+'+ val;
         }
     };
-    let data = {};
+    
     const sendForm = (location,data) => {
-        let body;
+        let body = {};
         const form = location;
         const statusMessage = document.createElement('div');
         const obj = {};
@@ -69,24 +70,28 @@ const sendForms = () => {
            setTimeout(() =>  statusMessage.parentNode.removeChild(statusMessage), 3000);
            clearInput();
         });
+        
     }
 
+    
     
     inputEl.forEach(item => item.addEventListener('input', validationForm));
     window.addEventListener('click', event => {
         const target = event.target;
-        if(target.classList.contains('call-btn')) data = calculate;
-        else if(target.classList.contains('director-btn')) data = question;
-    });    
-    let i =0 ;
+        const callBtn = document.querySelectorAll('.call-btn')[1];
+        if(target == callBtn) data = calculate;
+        else if(target.classList.contains('director-btn')) data = question; 
+
+    }); 
     window.addEventListener('submit', event => {
         event.preventDefault();
         const target = event.target,
-              directInput = document.querySelector('.director-form>input'),
+            directInput = document.querySelector('.director-form>input'),
             parent = target.parentNode,
             form = parent.querySelector('form');
             if(form.id == 'form_consultation') directInput.value = ``;
             sendForm(form, data);
+            data={};
     });  
    
 }
